@@ -1,0 +1,65 @@
+{
+    "compilerOptions": {
+      // "experimentalDecorators": true,
+      "outDir": "dist",
+      "module": "esnext",
+      "target": "es5",
+      "lib": [
+        "es6",
+        "dom"
+      ],
+      "baseUrl": ".",
+      "paths": {
+        "@/*": [
+          "src/*"
+        ],
+        "components/*": [
+          "src/components/*"
+        ],
+        "utils/*": [
+          "src/utils/*"
+        ],
+        "modules/*": [
+          "src/modules/*"
+        ],
+        "antd": [
+          "./node_modules/antd/lib/index.d.ts"
+        ], // antd本身是ts写的没有@type
+      },
+      "sourceMap": true,
+      "allowJs": true,
+      "jsx": "react",
+      "moduleResolution": "node", // 会影响别名引用
+      // "rootDir": "src",
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitReturns": true,
+      "noImplicitThis": true,
+      "noImplicitAny": true,
+      "importHelpers": true,
+      "strictNullChecks": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "noUnusedLocals": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      // "strict": true,
+      // "resolveJsonModule": true, //
+      "isolatedModules": true,
+      "plugins": [
+        {
+          "name": "typescript-tslint-plugin"
+        }
+      ]
+      // "noEmit": true
+    },
+    "exclude": [
+      "node_modules",
+      "dist",
+      "config"
+    ],
+    "include": [
+      "node_modules/reactcomponent/com/**/*",
+      "src/dmis.d.ts",
+      "src/**/*",
+    ]
+  }

@@ -1,0 +1,118 @@
+{
+    // A wrapper around the Babel parser that makes it compatible with ESLint     default Esprima
+    "parser": "@typescript-eslint/parser", // babel-eslint
+    "parserOptions": {
+      "sourceType": "module", //模块开发
+      "ecmaVersion": 6, //For ES6 syntax
+      "ecmaFeatures": {
+        "jsx": true,
+        "tsx": true,
+        "experimentalObjectRestSpread": true,
+        "legacyDecorators": true
+      }
+    },
+    "env": {
+      "es6": true, //for new ES6 global variables（该选项会自动设置 ecmaVersion 解析器选项为 6）
+      "browser": true,
+      "commonjs": true
+    },
+    "globals": {
+      "axios": "readonly", //全局变量不能被重写
+      "process": "readonly",
+      "_FRENV_": "readonly"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "react",
+      "react-hooks"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+      // "eslint-config-ali/react"
+    ],
+    "rules": {
+      "no-undef": "error",
+      "no-unreachable": "warn",
+      "no-unused-vars": [
+        "warn",
+        {
+          "vars": "all",
+          "args": "after-used",
+          "ignoreRestSiblings": true
+        }
+      ],
+      "indent": [
+        "warn",
+        2
+      ],
+      // "indent": [1, 2],
+      // "linebreak-style": [
+      //   "warn",
+      //   "windows"
+      // ],
+      "quotes": [
+        "warn",
+        "single"
+      ],
+      "semi": [
+        "off",
+        "always"
+      ],
+      "no-empty": [
+        "warn",
+        {
+          "allowEmptyCatch": true
+        }
+      ],
+      "no-alert": "warn",
+      "no-console": "off",
+      "no-multiple-empty-lines": [
+        "warn",
+        {
+          "max": 1
+        }
+      ], //最多1个空行
+      // React & TSX
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": ["error"],
+      "@typescript-eslint/no-explicit-any": ["off", { "ignoreRestArgs": false }],
+      "@typescript-eslint/ban-types": "off",
+      "react-hooks/rules-of-hooks": "off",
+      // React & JSX
+      "react/prop-types": "off",
+      // Our transforms set this automatically dom属性检测
+      // "react/jsx-boolean-value": [2, "always"],
+      "react/jsx-no-undef": "error",
+      // We don"t care to do this
+      // "react/jsx-sort-prop-types": OFF,
+      // "react/jsx-space-before-closing": 2,
+      "react/jsx-tag-spacing": "warn",
+      // 排除检测React 因为代码可能没有引用他 正常检查会有语法错误
+      "react/jsx-uses-react": "error",
+      // "react/jsx-uses-axios": 2,
+      // "react/no-is-mounted": OFF,
+      // This isn"t useful in our test code
+      "react/react-in-jsx-scope": "error",
+      // jsx 空标签  标签没有关闭
+      "react/self-closing-comp": "error",
+      // We don"t care to do this
+      "react/jsx-wrap-multilines": [
+        "error",
+        {
+          "declaration": false,
+          "assignment": false
+        }
+      ],
+      // 判断虚拟dom 有没有使用
+      "react/jsx-uses-vars": [
+        "error"
+      ],
+      "react/forbid-prop-types": "off",
+      // "comma-dangle": [
+      //   2,
+      //   "always-multiline"
+      // ]
+    }
+  }
