@@ -239,6 +239,9 @@ const config = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
+            // plugins: [
+            //   require.resolve('react-refresh/babel')
+            // ]
           },
         },
         {
@@ -256,6 +259,9 @@ const config = {
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
+          // plugins: [
+          //   require.resolve('react-refresh/babel')
+          // ]
         },
       }],
     }],

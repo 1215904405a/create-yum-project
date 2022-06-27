@@ -38,7 +38,7 @@ class Layout extends Component {
       <div className={classnames(style.layout, 'flex')}>
         {<div className="common-top flex jc-between al-center">
           <div>
-            <Link to="/home">home</Link>
+            <Link to="/home">首页</Link>
           </div>
           <div className="common-top-right float-right">
             <span className="user-info theme-hover"><b><Icon type='icon-touxiang1' /></b> {username}</span>

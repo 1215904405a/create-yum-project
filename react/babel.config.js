@@ -5,6 +5,7 @@ const presets = [
       // 'targets': '> 1%, last 2 versions',  // package.json 统一配置targets  供babel、autoprefixer、stylelint、core-js-compat等，统一使用
       bugfixes: true,
       useBuiltIns: 'usage', // usage：自动加载你使用 polyfills   entry：手动去单独引入要用的
+      corejs: 3,
       shippedProposals: true // 用 usage    shippedProposals和'corejs' 二选一
     }
   ],

@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
@@ -23,8 +24,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     port: '8888',
     host: '0.0.0.0',
-    hot: false,
-    client: false,
+    // hot: true,
+    // client: false,
     // open: true,
     static: {
       directory: path.join(__dirname, 'dist'),
@@ -61,6 +62,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     //   },
     // ]),
     new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin()
   ],
 });
 
