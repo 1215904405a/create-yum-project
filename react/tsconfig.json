@@ -55,11 +55,11 @@
     "exclude": [
       "node_modules",
       "dist",
-      "config"
+      "src/config"
     ],
     "include": [
-      "node_modules/reactcomponent/com/**/*",
-      "src/dmis.d.ts",
+      // 自己的组件
+      "src/yum.d.ts",
       "src/**/*",
     ]
   }

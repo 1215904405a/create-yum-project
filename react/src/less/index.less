@@ -1,0 +1,279 @@
+@import "./base/rem.less";
+@import "./base/normalize.css";
+@import "./base/util.less";
+@import "./fontsize.less";
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  font-family: "Microsoft YaHei", SourceHanSansCN-Normal-Alphabetic, Roboto-Regular, SimSun, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f8f9fb;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  background-color: #fff;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.clear {
+  clear: both;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.p20 {
+  padding: 20px;
+}
+
+.m15 {
+  margin: 15px;
+}
+
+/* 404 */
+.no-match {
+  padding-top: 5%;
+}
+
+/* header */
+.site-page-header {
+  padding: 30px;
+  font-size: 1.2rem;
+  border: 1px solid rgb(235 237 240);
+}
+
+.high-100 {
+  height: calc(100%);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-align-end {
+  justify-content: flex-end;
+}
+
+.hide {
+  display: none;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.align-left {
+  text-align: left !important;
+}
+
+.align-center {
+  text-align: center !important;
+}
+
+.align-right {
+  text-align: right !important;
+}
+
+.vertical-top {
+  vertical-align: top !important;
+}
+
+.vertical-middle {
+  vertical-align: middle !important;
+}
+
+// 输入框填入值会带背景色
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: color 11111s ease-out, background-color 111111s ease-out;
+  transition-delay: 111111s;
+}
+
+.m-t-24 {
+  margin-top: 24px;
+}
+
+.m-b-24 {
+  margin-bottom: 24px;
+}
+
+.m-b-50 {
+  margin-bottom: 50px;
+}
+
+.m-b-60 {
+  margin-bottom: 60px;
+}
+
+.m-t-32 {
+  margin-top: 32px;
+}
+
+.m-b-32 {
+  margin-bottom: 32px;
+}
+
+.padding-4-12 {
+  padding: 4px 12px;
+}
+
+.white-color {
+  color: white;
+}
+
+// 业务相关 换项目删除 或生成新文件
+.upload-btn {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.required {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+}
+
+.delete-btn {
+  color: #f15b5d;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #ebedf7;
+}
+
+.block-header {
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 16px;
+  vertical-align: middle;
+
+  &::before {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    margin-right: 10px;
+    background: #7373ff;
+    border-radius: 2px;
+    content: " ";
+  }
+
+  .tips {
+    color: #ff7373;
+    font-size: 12px;
+  }
+
+  a {
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+.vice-color {
+  color: #7985aa;
+}
+
+// 主页内容滚动设置
+.scroll {
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
+}
+// 页面标题留住不动
+.page-scroll {
+  height: calc(100vh - 250px);
+  overflow-y: scroll;
+}
+
+.page-title {
+  margin: 15px 0;
+  color: #203166;
+  font-weight: 500;
+  font-size: 19px;
+  font-family: PingFangSC-Medium, "PingFang SC";
+}
+
+.file-item-select {
+  background: linear-gradient(270deg, #fbf9fd 0%, #f0f0ff 100%);
+}
+
+.text-center {
+  text-align: center;
+}
+
+// iconfont 样式
+.icon {
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: -0.15em;
+  fill: currentcolor;
+}

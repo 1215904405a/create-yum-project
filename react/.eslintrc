@@ -1,6 +1,6 @@
 {
     // A wrapper around the Babel parser that makes it compatible with ESLint     default Esprima
-    "parser": "@typescript-eslint/parser", // babel-eslint
+    "parser": "@typescript-eslint/parser", //  非ts babel-eslint
     "parserOptions": {
       "sourceType": "module", //模块开发
       "ecmaVersion": 6, //For ES6 syntax

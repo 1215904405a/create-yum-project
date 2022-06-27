@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["global", "local"]
+    }],
+    "no-missing-end-of-source-newline": null,
+    "selector-combinator-space-before": "never",
+    "selector-combinator-space-after": "never",
+    "no-invalid-double-slash-comments": null
+  }
+}
