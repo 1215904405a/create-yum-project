@@ -8,6 +8,7 @@ import React, {
 import EnSelect from 'reactcomponent/com/enhance/enSelect';
 import BlockForm from 'reactcomponent/com/blockForm';
 // import { useLocation } from 'react-router-dom';
+import { useBeforeunload } from '@/hooks';
 import logo from '../../logo.svg';
 import style from './style.less';
     
@@ -24,6 +25,7 @@ const onChange = (value: any) => {
 }
     
 function Home() {
+  useBeforeunload();
 
   const [joinDto, setJoinDto] = useState({
     joinSiteSelection: false,

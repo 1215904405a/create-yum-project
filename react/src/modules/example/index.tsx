@@ -1,16 +1,21 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Iform from './form';
+import Mobx from './mobx';
 import { TestIcon } from '@/conf/iconsvg';
 
 export const routes =
   [
     {
       name: '表单测试',
-      exact: true,
       path: 'form',
       element: Iform,
       icon: TestIcon,
+    },
+    {
+      name: 'mobx',
+      path: 'mobx',
+      element: Mobx,
     },
   ]
 
