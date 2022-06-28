@@ -1,71 +1,81 @@
 import React, {
-  Component
+  useState,
+  useEffect
 } from 'react';
 import {
+  ContainerOutlined,
+  DesktopOutlined,
+  MenuFoldOutlined,
   MenuUnfoldOutlined,
+  PieChartOutlined,
 } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import classnames from 'classnames';
-import urls, { urlObj } from '@/conf/url';
-// import Logo from '@/images/logo.png';
-// import TopText from '@/images/top_text.png';
 import Icon from '@/components/icon';
-// import { userReDetail } from '@/api/user';
+import { Menu } from 'antd';
 import style from './style.less';
 
-class Layout extends Component {
+const items = [{
+  label: 'Option 1',
+  key: '1',
+  icon: <PieChartOutlined />
+},{
+  label: 'Option 2',
+  key: '2',
+  icon: <DesktopOutlined />
+},{
+  label: 'Option 3',
+  key: '3',
+  icon: <ContainerOutlined />
+}]
 
-  public tabKeysObj = {} // tab重复问题记录
+function Layout({children}: any) {
+  const [collapsed, setCollapsed] = useState(true);
+  const location = useLocation();
+  useEffect(() => {
+    console.dir(location);
+  }, [location]);
 
-  public isTabClick = false
-  public tabTitle: any;
-
-  public constructor(props: any) {
-    super(props);
-  }
-
-  public toggleCollapsed = () => {
-    const { collapsed }: any = this.state;
-    this.setState({
-      collapsed: !collapsed,
-    });
-  };
-
-  public render() {
-    const { children, location, username }: any = this.props;
-
-    return (
-      <div className={classnames(style.layout, 'flex')}>
-        {<div className="common-top flex jc-between al-center">
-          <div>
-            <Link to="/home">首页</Link>
-          </div>
-          <div className="common-top-right float-right">
-            <span className="user-info theme-hover"><b><Icon type='icon-touxiang1' /></b> {username}</span>
-          </div>
-        </div>}
-        <div className="common-bottom flex">
-          {<div className={classnames('common-left', {
-            'common-collapsed': false,
-          })}
+  return (
+    <div className={classnames(style.layout, 'flex')}>
+      {<div className="common-top flex jc-between al-center">
+        <div>
+          <Link to="/">首页</Link>
+        </div>
+        <div className="common-top-right float-right">
+          <span className="user-info theme-hover"><b><Icon type='icon-touxiang1' /></b> 用户名</span>
+        </div>
+      </div>}
+      <div className="common-bottom flex">
+        {<div className={classnames('common-left', {
+          'common-collapsed': collapsed,
+        })}
+        >
+          <Menu
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            mode="inline"
+            theme="dark"
+            inlineCollapsed={collapsed}
+            items={items}
+          />
+          <span
+            className="collapsed"
+            onClick={() => setCollapsed(!collapsed)}
           >
-            <span
-              className="collapsed"
-              onClick={this.toggleCollapsed}
-            >
-              {React.createElement(MenuUnfoldOutlined)}
-            </span>
-          </div>}
+            { !collapsed && <MenuFoldOutlined /> }
+            { collapsed && <MenuUnfoldOutlined /> }
+          </span>
+        </div>}
 
-          <div className="common-right">
-            <div className="common-content">
-              {children}
-            </div>
+        <div className="common-right">
+          <div className="common-content">
+            {children}
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Layout;

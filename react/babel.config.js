@@ -26,10 +26,6 @@ const plugins = [
       'version': '^7.18.3' // @babel/runtime
     },
   ],
-  // '@babel/plugin-syntax-dynamic-import',
-  // '@babel/plugin-syntax-object-rest-spread',
-  // ['@babel/plugin-proposal-decorators', { legacy: true }], // 注意顺序
-  // '@babel/plugin-proposal-class-properties',
   ['import', {
     libraryName: 'antd',
     style: true, // or 'style' or true

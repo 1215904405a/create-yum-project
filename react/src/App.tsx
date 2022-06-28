@@ -5,7 +5,6 @@ import { ConfigProvider, Spin } from 'antd';
 import routes from './conf/routes';
 import NoMatch from 'components/nomatch';
 import Layout from 'components/layout';
-// import { hot } from 'react-hot-loader/root'// 配合HotModuleReplacementPlugin 热更新不刷新页面
 
 interface IProps {
   gloading?: boolean
@@ -22,14 +21,12 @@ class App extends React.Component<IProps> {
           
           <Layout>
             <Routes>
-              {/* <Route path="/" element={<Home />} />
-                <Route path="about" element={<About />} /> */}
               {
                 routes.map(item => (
-                  <Route key={item.path as string} path={item.path} element={item.component} />
+                  <Route key={item.path as string} path={item.path} element={item.element} />
                 ))
               }
-              <Route element={<NoMatch />} />
+              <Route path="*" element={<NoMatch />} />
             </Routes>
           </Layout>
 
@@ -39,5 +36,4 @@ class App extends React.Component<IProps> {
   }
 }
 
-// export default hot(App);
 export default App;
