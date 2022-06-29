@@ -5,3 +5,4 @@ dist.zip
 modules.json
 .history
 .DS_Store
+__snapshots__

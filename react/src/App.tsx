@@ -9,7 +9,6 @@ import Layout from 'components/layout';
 interface IProps {
   gloading?: boolean
 }
-
 class App extends React.Component<IProps> {
 
   public render() {

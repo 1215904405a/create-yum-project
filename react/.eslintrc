@@ -19,7 +19,9 @@
     "globals": {
       "axios": "readonly", //全局变量不能被重写
       "process": "readonly",
-      "_FRENV_": "readonly"
+      "_FRENV_": "readonly",
+      "it": "readonly", // jest
+      "expect": "readonly"
     },
     "plugins": [
       "@typescript-eslint",
@@ -34,14 +36,14 @@
     "rules": {
       "no-undef": "error",
       "no-unreachable": "warn",
-      "no-unused-vars": [
-        "warn",
-        {
-          "vars": "all",
-          "args": "after-used",
-          "ignoreRestSiblings": true
-        }
-      ],
+      // "no-unused-vars": [
+      //   "error",
+      //   {
+      //     "vars": "all",
+      //     "args": "after-used",
+      //     "ignoreRestSiblings": true
+      //   }
+      // ],
       "indent": [
         "warn",
         2
@@ -79,6 +81,7 @@
       "@typescript-eslint/no-use-before-define": ["error"],
       "@typescript-eslint/no-explicit-any": ["off", { "ignoreRestArgs": false }],
       "@typescript-eslint/ban-types": "off",
+      "@typescript-eslint/no-unused-vars": "error",
       "react-hooks/rules-of-hooks": "off",
       // React & JSX
       "react/prop-types": "off",
