@@ -21,8 +21,6 @@ const unpack = require('tar-pack').unpack;
 const url = require('url');
 const validateProjectName = require('validate-npm-package-name');
 
-const child_process = require('child_process');
-
 const packageJson = require('./package.json');
 
 function isUsingYarn() {
@@ -115,16 +113,16 @@ function init() {
     // console.log(__filename);
 
     try{
-        child_process.execSync(`mkdir ${projectName}`);
+        execSync(`mkdir ${projectName}`);
         if(process.platform === 'win32') {  // 兼容window
-            child_process.execSync(`Xcopy ${__dirname}\\react ${projectName} /S /H /E`);  // /H 拷贝隐藏文件      具体看help => xcopy /?
+            execSync(`Xcopy ${__dirname}\\react ${projectName} /S /H /E`);  // /H 拷贝隐藏文件      具体看help => xcopy /?
         } else {  //if (process.platform === 'darwin' || process.platform === 'linux') 
-            child_process.execSync(`cp -r ${__dirname}/react/ ./${projectName}/`);
+            execSync(`cp -r ${__dirname}/react/ ./${projectName}/`);
         }
         console.log(chalk.green(`react项目${projectName}新建成功；`));
         console.log(chalk.green(`目录：${process.cwd()}/${projectName}`));
     } catch(err) {
-        console.log(chalk.red(err.message));
+        console.log(chalk.red('创建项目失败，请联系1215904405@qq.com'));
     }
   }
   //   if (latest && semver.lt(packageJson.version, latest)) {
@@ -133,6 +131,16 @@ function init() {
   //   const useYarn = isUsingYarn();
 
   // 依赖安装
+  console.info(chalk.cyan('安装依赖包...'));
+  try {
+    execSync('yarn install', {
+        cwd: `./${projectName}/`,
+        stdio: 'inherit',
+    });
+    console.log(chalk.green(`安装完成，本地启动：yarn start`));  
+  } catch(err) {
+    console.log(chalk.red('依赖安装失败，请手动安装'));
+  }
 }
 
 
