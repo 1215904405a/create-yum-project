@@ -26,7 +26,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "reactcomponent": "git+https://gitlab.imyai.cn/yum-front/reactcomponent.git#v1.0.0",
+    "reactyumcom": "^1.0.0",
     "ts-loader": "^9.3.1"
   },
   "devDependencies": {

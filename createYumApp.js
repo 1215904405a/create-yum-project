@@ -122,7 +122,7 @@ function init() {
         console.log(chalk.green(`react项目${projectName}新建成功；`));
         console.log(chalk.green(`目录：${process.cwd()}/${projectName}`));
     } catch(err) {
-        console.log(chalk.red('创建项目失败，请联系1215904405@qq.com'));
+        console.log(chalk.red('创建项目失败或者目录已存在，有疑问请联系1215904405@qq.com'));
     }
   }
   //   if (latest && semver.lt(packageJson.version, latest)) {

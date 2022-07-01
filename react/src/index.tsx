@@ -7,7 +7,7 @@ import { createRoot } from 'react-dom/client';
 import { getCLS, getFID, getLCP } from 'web-vitals';
 import App from './App';
 // import './serviceWorker'; // TODO: pwa
-import { getAllComponents } from 'reactcomponent/src/edit/parser/main'; // TODO: 模块解析
+import { getAllComponents } from 'reactyumcom/src/edit/parser/main'; // TODO: 模块解析
 import { HashRouter } from 'react-router-dom';
 import './less/index.less';
 
