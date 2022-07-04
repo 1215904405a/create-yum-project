@@ -78,6 +78,6 @@ declare interface Window { // 全局变量
   _FRENV_: string;
 }
 
-declare module 'reactcomponent/src/edit/parser/main'
+declare module 'reactyumcom/src/edit/parser/main'
 
 declare const _FRENV_: string

@@ -1,5 +1,11 @@
 ## 快速生成新项目
 注意：node版本需要14以上
+
+安装：
+```
+npm install create-yum-project -g
+```
+
 ## 创建应用 暂时默认react + typescript
 创建项目：create-yum-project newAppName （react18+react-router6 +mobx+ts） 
 
