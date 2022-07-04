@@ -231,7 +231,7 @@ const config = {
       test: /\.ts|tsx$/,
       // exclude: /(node_modules|bower_components)/,
       include: [
-        path.resolve(__dirname, "../node_modules/reactcomponent/com"),
+        path.resolve(__dirname, "../node_modules/reactyumcom/com"),
         path.resolve(__dirname, "../src")
       ],
       use: [

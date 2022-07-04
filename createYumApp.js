@@ -132,15 +132,18 @@ function init() {
 
   // 依赖安装
   console.info(chalk.cyan('安装依赖包...'));
+  console.info(chalk.cyan(`可能会比较慢，请耐心等待...`));
   try {
     execSync('yarn install', {
         cwd: `./${projectName}/`,
         stdio: 'inherit',
     });
-    console.log(chalk.green(`安装完成，本地启动：yarn start`));  
+
+    console.log(chalk.green(`安装完成，本地启动：cd ${projectName} && yarn start;`));  
   } catch(err) {
     console.log(chalk.red('依赖安装失败，请手动安装'));
   }
+  console.log(chalk.red(`新版husky需要依赖.git,放到gitlab后需要执行husky install`));  
 }
 
 
