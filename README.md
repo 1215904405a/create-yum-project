@@ -6,13 +6,22 @@
 npm install create-yum-project -g
 ```
 
-## 创建应用 暂时默认react + typescript
-创建项目：create-yum-project newAppName （react18+react-router6 +mobx+ts） 
+## 创建项目：
+```
+create-yum-project newAppName (默认react)
+create-yum-project newAppName --template react/vue 
 
-显示环境信息：create-yum-project --info
+info：create-yum-project --info
 
---template 区分不同view模板 扩展中...
+version: create-yum-project --v
 
-## 其他vue等模板后续再扩展
+template create-yum-project myapp --template react/vue
+
+
+react——（webpack+react18+react-router6 +mobx+ts） 
+vue——(Vite Vue3 ts tsx elementplus)
+```
+
+## 其他模板后续再扩展
 
 尽量用vscode开发

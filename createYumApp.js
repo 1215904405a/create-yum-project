@@ -28,13 +28,14 @@ function isUsingYarn() {
 }
 
 let projectName; // 新建项目名称
+const templates = ['react', 'vue']; // view——react、view
 
 function init() {
   const program = new commander.Command(packageJson.name)
     .version(packageJson.version)
     .arguments('<project-directory>') // 可以一次性指定多个参数，但不包含参数描述, 这里是新建的项目名称
     .usage(`${chalk.green('<project-directory>')} [options]`) // 通过这个选项可以修改帮助信息的首行提示，说明用法  create-yum-project <project-directory>(项目名) [options](可选模板等)
-    .action(name => {  // 定义命令的回调函数
+    .action(name => {
       projectName = name;
     })
     // .option('--verbose', 'print additional logs')
@@ -45,10 +46,11 @@ function init() {
     // )
     .option(
       '--template <模板>', // <>定义必需参数，[]定义可选参数
-      '选一个具体的模板，后续扩展，默认react typescript' // 选项的描述 在使用-h或者--help时会显示
+      '选一个具体的模板,比如react、vue，默认react typescript' // 选项的描述 在使用-h或者--help时会显示
     )
     .option('--use-pnp')
     .allowUnknownOption()
+    .option('--v', 'versionqq')
     .on('--help', () => {
         // 在使用-h或者--help时会显示 细节说明
         //   console.log(
@@ -90,6 +92,15 @@ function init() {
       .then(console.log);
   }
 
+  if (program.v) {
+    console.log(chalk.bold(packageJson.version));
+    return;
+  }
+
+  if(!program.template) {
+    program.template = 'react';
+  }
+
   // 不在commander范围内 提示
   if (typeof projectName === 'undefined') {
     console.error('Please specify the project directory:');
@@ -106,6 +117,9 @@ function init() {
       `Run ${chalk.cyan(`${program.name()} --help`)} to see all options.`
     );
     process.exit(1);
+  } else if(templates.indexOf(program.template) === -1) {
+    console.log(chalk.red('template暂时只支持react/vue'));
+    return;
   } else if (projectName) {
     // console.log(process.cwd());
     // console.log(__dirname);
@@ -115,11 +129,11 @@ function init() {
     try{
         execSync(`mkdir ${projectName}`);
         if(process.platform === 'win32') {  // 兼容window
-            execSync(`Xcopy ${__dirname}\\react ${projectName} /S /H /E`);  // /H 拷贝隐藏文件      具体看help => xcopy /?
+            execSync(`Xcopy ${__dirname}\\${program.template} ${projectName} /S /H /E`);  // /H 拷贝隐藏文件      具体看help => xcopy /?
         } else {  //if (process.platform === 'darwin' || process.platform === 'linux') 
-            execSync(`cp -r ${__dirname}/react/ ./${projectName}/`);
+            execSync(`cp -r ${__dirname}/${program.template}/ ./${projectName}/`);
         }
-        console.log(chalk.green(`react项目${projectName}新建成功；`));
+        console.log(chalk.green(`${program.template}项目${projectName}新建成功；`));
         console.log(chalk.green(`目录：${process.cwd()}/${projectName}`));
     } catch(err) {
         console.log(chalk.red('创建项目失败或者目录已存在，有疑问请联系1215904405@qq.com'));
@@ -139,7 +153,7 @@ function init() {
         stdio: 'inherit',
     });
 
-    console.log(chalk.green(`安装完成，本地启动：cd ${projectName} && yarn start;`));  
+    console.log(chalk.green(`安装完成，cd ${projectName}，本地启动`));  
   } catch(err) {
     console.log(chalk.red('依赖安装失败，请手动安装'));
   }
