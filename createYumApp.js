@@ -1,10 +1,11 @@
 /**
  * Copyright (c) wangyong, Inc.
- * 
+ * 参考：https://github.com/tj/commander.js/blob/HEAD/Readme_zh-CN.md
  */
 
 'use strict';
 
+const inquirer = require('inquirer');
 const chalk = require('chalk');
 const commander = require('commander');
 const envinfo = require('envinfo');
@@ -50,7 +51,7 @@ function init() {
     )
     .option('--use-pnp')
     .allowUnknownOption()
-    .option('--v', 'versionqq')
+    .option('--v', 'version')
     .on('--help', () => {
         // 在使用-h或者--help时会显示 细节说明
         //   console.log(
@@ -128,6 +129,39 @@ function init() {
 
     try{
         execSync(`mkdir ${projectName}`);
+        copyProject();
+        relyInstall();
+    } catch(err) {
+        console.log(chalk.red('有疑问请联系1215904405@qq.com'));
+        inquirer.prompt([
+           {
+            type: 'confirm',
+            name: 'name',
+            message: '目录可能已存在，是否覆盖'
+           }
+        ])
+        .then((answers) => {
+            // console.log('answers: ')
+            // console.log(answers.name)
+            if (answers.name) { // y yes
+                copyProject(); 
+                relyInstall();
+            }
+        })
+        .catch((error) => {
+            // 报错处理 
+            if (error.isTtyError) {
+            // Prompt couldn't be rendered in the current environment
+            } else {
+            // Something else went wrong
+            }
+        });
+        return;
+    } 
+  }
+
+  function copyProject(){
+    try{
         if(process.platform === 'win32') {  // 兼容window
             execSync(`Xcopy ${__dirname}\\${program.template} ${projectName} /S /H /E`);  // /H 拷贝隐藏文件      具体看help => xcopy /?
         } else {  //if (process.platform === 'darwin' || process.platform === 'linux') 
@@ -136,7 +170,7 @@ function init() {
         console.log(chalk.green(`${program.template}项目${projectName}新建成功；`));
         console.log(chalk.green(`目录：${process.cwd()}/${projectName}`));
     } catch(err) {
-        console.log(chalk.red('创建项目失败或者目录已存在，有疑问请联系1215904405@qq.com'));
+        console.log(chalk.red('创建项目失败，有疑问请联系1215904405@qq.com'));
     }
   }
   //   if (latest && semver.lt(packageJson.version, latest)) {
@@ -145,19 +179,22 @@ function init() {
   //   const useYarn = isUsingYarn();
 
   // 依赖安装
-  console.info(chalk.cyan('安装依赖包...'));
-  console.info(chalk.cyan(`可能会比较慢，请耐心等待...`));
-  try {
-    execSync('yarn install', {
-        cwd: `./${projectName}/`,
-        stdio: 'inherit',
-    });
-
-    console.log(chalk.green(`安装完成，cd ${projectName}，本地启动`));  
-  } catch(err) {
-    console.log(chalk.red('依赖安装失败，请手动安装'));
+  function relyInstall(){
+    console.info(chalk.cyan('安装依赖包...'));
+    console.info(chalk.cyan(`可能会比较慢，请耐心等待...`));
+    try {
+      execSync('yarn install', {
+          cwd: `./${projectName}/`,
+          stdio: 'inherit',
+      });
+  
+      console.log(chalk.green(`安装完成，cd ${projectName}，本地启动`));  
+    } catch(err) {
+      console.log(chalk.red('依赖安装失败，请手动安装'));
+    }
+    console.log(chalk.red(`新版husky需要依赖.git,放到gitlab后需要执行husky install`));
   }
-  console.log(chalk.red(`新版husky需要依赖.git,放到gitlab后需要执行husky install`));  
+  
 }
 
 
