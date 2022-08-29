@@ -85,7 +85,7 @@ export default defineComponent({
             placeholder="请输入用户名"
             v-model={data.user.name}
             v-slots={{
-              prefix: <i class="el-input__icon el-icon-user"></i>
+              prefix: <symbol-icon type="iconpinxianggongyingshang" style="position: relative;top: 10px;" />
             }}
             {...{
               onKeyup: keyUp
@@ -99,9 +99,10 @@ export default defineComponent({
         >
           <ElInput
             placeholder="请输入密码"
+            type='password'
             v-model={data.user.password}
             v-slots={{
-              prefix: <i class="el-input__icon el-icon-unlock"></i>
+              prefix: <symbol-icon type="iconpinxianggongyingshang" style="position: relative;top: 10px;" />
             }}
             {...{
               onKeyup: keyUp
