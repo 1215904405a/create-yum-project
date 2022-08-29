@@ -28,7 +28,7 @@ function isUsingYarn() {
 }
 
 let projectName; // 新建项目名称
-const templates = ['react', 'vue']; // view——react、view
+const templates = ['react', 'vue', 'vue-mobile']; // view——react、view
 
 function init() {
   const program = new commander.Command(packageJson.name)
@@ -46,7 +46,7 @@ function init() {
     // )
     .option(
       '--template <模板>', // <>定义必需参数，[]定义可选参数
-      '选一个具体的模板,比如react、vue，默认react typescript' // 选项的描述 在使用-h或者--help时会显示
+      '选一个具体的模板,比如react、vue、vue-mobile，默认react typescript' // 选项的描述 在使用-h或者--help时会显示
     )
     .option('--use-pnp')
     .allowUnknownOption()
@@ -118,7 +118,7 @@ function init() {
     );
     process.exit(1);
   } else if(templates.indexOf(program.template) === -1) {
-    console.log(chalk.red('template暂时只支持react/vue'));
+    console.log(chalk.red('template暂时只支持react/vue/vue-mobile'));
     return;
   } else if (projectName) {
     // console.log(process.cwd());
