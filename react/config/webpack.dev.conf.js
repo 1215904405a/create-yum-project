@@ -13,7 +13,7 @@ const mockerFile = ['./mock/index.js'];
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map', // 可以生成单独的.map文件，还可以定位到babel转换前的源代码，能够大大提高调试代码的效率
   module: {
 
   },
@@ -31,13 +31,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       directory: path.join(__dirname, 'dist'),
     },
     // server: 'http',
-    compress: false,
-    // allowedHosts: [
-    //   'host.com',
-    //   'subdomain.host.com',
-    //   'subdomain2.host.com',
-    //   'host2.com',
-    // ],
+    compress: true,
+    allowedHosts: 'all',
     headers: {
       'Access-Control-Allow-Origin': '*',
     },

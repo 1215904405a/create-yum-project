@@ -7,7 +7,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
-  devtool: 'source-map', // 'cheap-source-map',
+  devtool: 'cheap-source-map', // 只能定位到行数，不能定位到列数
   module: {
 
   },
