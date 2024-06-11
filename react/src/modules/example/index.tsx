@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Iform from './form';
-import Mobx from './mobx';
+import ReduxExa from './redux';
 import { TestIcon } from '@/conf/iconsvg';
 
 export const routes =
@@ -15,7 +15,7 @@ export const routes =
     {
       name: 'mobx',
       path: 'mobx',
-      element: Mobx,
+      element: ReduxExa,
     },
   ]
 

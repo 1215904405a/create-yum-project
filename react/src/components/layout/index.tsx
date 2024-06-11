@@ -13,8 +13,11 @@ import { Link, useLocation } from 'react-router-dom';
 import classnames from 'classnames';
 import Icon from '@/components/icon';
 import { Menu } from 'antd';
-import style from './style.less';
-
+import * as style from './style.module.less';
+console.log('style: ');
+console.log(style);
+console.log(style.layout);
+// style.default.use();
 const items = [{
   label: 'Option 1',
   key: '1',

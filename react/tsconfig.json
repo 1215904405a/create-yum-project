@@ -37,7 +37,6 @@
       "noImplicitAny": true,
       "importHelpers": true,
       "strictNullChecks": true,
-      "suppressImplicitAnyIndexErrors": true,
       "noUnusedLocals": true,
       "skipLibCheck": true,
       "esModuleInterop": true,

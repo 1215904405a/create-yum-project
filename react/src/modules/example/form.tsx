@@ -2,7 +2,7 @@ import React, {
   useState,
 } from 'react';
 // import EnSelect from 'reactyumcom/com/enhance/enSelect';
-import BlockForm from 'reactyumcom/com/blockForm';
+// import BlockForm from 'reactyumcom/com/blockForm';
     
 function Ifrom() {
   const [joinDto, setJoinDto] = useState({
@@ -62,13 +62,13 @@ function Ifrom() {
     
   return (
     <div className="p20">
-      <BlockForm
+      {/* <BlockForm
         paramCallback={paramCallback}
         formData={formData}
         initparams={joinDto}
         layout='horizontal'
         noborderBottom={true}
-      />
+      /> */}
     </div>
   )
 }

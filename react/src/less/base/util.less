@@ -1,68 +1,71 @@
-@spacing-type: {
-  m: margin;
-  p: padding;
-}
 
-@spacing-size: {
-  0: 0;
-  xs: 10;
-  sm: 20;
-  n: 30;
-  lg: 40;
-}
-
-@spacing-direction: {
-  t: top;
-  r: right;
-  b: bottom;
-  l: left;
-}
-
-@flex-js: {
-  start: flex-start;
-  end: flex-end;
-  center: center;
-  between: space-between;
-  around: space-around;
-}
-
-@flex-al: {
-  start: flex-start;
-  end: flex-end;
-  center: center;
-  stretch: stretch;
-  baseline:baseline;
-}
-
-each(@flex-js, {
-  .jc-@{key} {
-      justify-content: @value;
+:global {
+  @spacing-type: {
+    m: margin;
+    p: padding;
   }
-});
 
-each(@flex-al, {
-  .al-@{key} {
-      align-items: @value;
+  @spacing-size: {
+    0: 0;
+    xs: 10;
+    sm: 20;
+    n: 30;
+    lg: 40;
   }
-})
 
-// .m-0 = margin: 1px
-each(@spacing-type, .(@v,@k){
-  each(@spacing-size, .(@vd,@kd) {
-    .@{k}-@{kd} {
-      @{v} : @vd*1px!important;
-    } 
-  })
-})
+  @spacing-direction: {
+    t: top;
+    r: right;
+    b: bottom;
+    l: left;
+  }
 
-// .m-t-1 = margin-top: 1px
-each(@spacing-type, .(@v,@k){
-  each(@spacing-direction, .( @vd,@kd) {
-      each(range(30),{
-        .@{k}-@{kd}-@{value} {
-          @{v}-@{vd} : @value*1px!important;
-        }
-      })
+  @flex-js: {
+    start: flex-start;
+    end: flex-end;
+    center: center;
+    between: space-between;
+    around: space-around;
+  }
+
+  @flex-al: {
+    start: flex-start;
+    end: flex-end;
+    center: center;
+    stretch: stretch;
+    baseline:baseline;
+  }
+
+  each(@flex-js, {
+    .jc-@{key} {
+        justify-content: @value;
     }
-  );
-})
+  });
+
+  each(@flex-al, {
+    .al-@{key} {
+        align-items: @value;
+    }
+  })
+
+  // .m-0 = margin: 1px
+  each(@spacing-type, .(@v,@k){
+    each(@spacing-size, .(@vd,@kd) {
+      .@{k}-@{kd} {
+        @{v} : @vd*1px!important;
+      } 
+    })
+  })
+
+  // .m-t-1 = margin-top: 1px
+  each(@spacing-type, .(@v,@k){
+    each(@spacing-direction, .( @vd,@kd) {
+        each(range(30),{
+          .@{k}-@{kd}-@{value} {
+            @{v}-@{vd} : @value*1px!important;
+          }
+        })
+      }
+    );
+  })
+}

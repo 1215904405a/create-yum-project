@@ -1,0 +1,119 @@
+.layout {
+  flex-direction: column;
+  // height: 100vh;
+  :global {
+    .common-left {
+      position: relative;
+      // flex: initial;
+      width: 180px;
+      height: calc(100vh - 48px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      border-radius: 0 0 12px 0;
+      box-shadow: 8px 1px 9px 0 #edf0f8;
+      background: rgba(53, 94, 170, 0.1);
+  
+      .collapsed {
+        position: fixed;
+        bottom: 25px;
+        left: 22px;
+        cursor: pointer;
+      }
+  
+      &.common-collapsed {
+        width: 50px;
+      }
+  
+      // &.ant-menu-inline-collapsed {
+      //   width: 60px !important;
+      // }
+      .ant-menu.ant-menu-inline-collapsed {
+        width: 50px !important;
+      }
+    }
+  
+    .common-top {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 48px;
+      padding: 5px 20px;
+      overflow-y: hidden;
+      color: #414141;
+      font-weight: 700;
+      font-size: 23px;
+      font-family: YouSheBiaoTiHei;
+      font-style: normal;
+      line-height: 36px;
+      background: linear-gradient(180deg, #fefeff 0%, #fff 100%);
+      border: 1px solid #ebedf7;
+      border-radius: 0 0 12px 12px;
+      // background-color: rgba(163, 0, 20, 0.694117647058824);
+      box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 8px 0 #edf0f8;
+  
+      .common-top-right {
+        color: #414141;
+        font-weight: 400;
+        font-size: 16px;
+      }
+  
+      .user-info {
+        margin-right: 40px;
+        padding: 5px;
+      }
+  
+      .user-info b {
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+        background: #fff;
+        border-radius: 13px;
+        box-shadow: 0 0 4px 0 #d6dce8;
+      }
+  
+      img {
+        height: 100%;
+        // margin-right: 10px;
+        // height: 36px;
+        margin-left: -6px;
+        vertical-align: middle;
+      }
+    }
+  
+    .common-right {
+      flex: 1;
+      overflow-x: hidden;
+  
+      .common-content {
+        position: relative;
+        padding: 8px;
+      }
+    }
+  
+    .common-bottom {
+      min-height: calc(100vh - 48px);
+      display: flex;
+    }
+  
+    // .ant-menu-dark .ant-menu-inline.ant-menu-sub,
+    .ant-menu,
+    .ant-menu-submenu {
+      background: transparent;
+  
+      &>.ant-menu {
+        background: transparent;
+      }
+    }
+  
+    .ant-menu-root {
+      margin-top: 10px;
+    }
+  
+    .ant-menu-inline {
+      border-right: 0;
+    }
+  }
+}

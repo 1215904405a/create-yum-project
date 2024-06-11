@@ -135,14 +135,14 @@ const config = {
       // exclude: /node_modules/,
       use: [
         // style-loader库实现了HMR接口，当通过HMR收到更新时，它将用新样式替换旧样式。区分开发环境和生产环境，用不同loader
-        env !== 'dev' ? MiniCssExtractPlugin.loader : { loader: 'style-loader' },
+        env !== 'dev' ? MiniCssExtractPlugin.loader : {
+          loader: 'style-loader',
+          // options: { injectType: 'lazySingletonStyleTag' },
+        },
         {
           loader: 'css-loader',
           options: {
-            modules: {
-              mode: 'global',
-            },
-            // sourceMap: true,
+            modules: true, // 启用 CSS Modules
           },
         }, {
           loader: 'postcss-loader',
@@ -163,19 +163,6 @@ const config = {
           loader: 'less-loader',
           options: {
             lessOptions: {
-              modifyVars: { // 定义样式变量
-                'primary-color': '#7373FF',
-                'border-radius-base': '4px',
-                'text-color': '#203166',
-                'label-color': '#203166',
-                'table-header-color': '#203166',
-                'border-color-base': '#EBEDF7',
-                // 'input-border-color': '#EBEDF7',
-                // 'select-border-color': '#EBEDF7',
-                'input-placeholder-color': '#CCD0DE',
-                // or
-                // 'hack': `true; @import "your-less-file-path.less";`, // Override with less file
-              },
               javascriptEnabled: true,
             },
           },

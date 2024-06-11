@@ -5,12 +5,14 @@ import React, {
   // useMemo,
   // Fragment
 } from 'react';
-import EnSelect from 'reactyumcom/com/enhance/enSelect';
-import BlockForm from 'reactyumcom/com/blockForm';
+// import EnSelect from 'reactyumcom/com/enhance/enSelect';
+// import BlockForm from 'reactyumcom/com/blockForm';
 // import { useLocation } from 'react-router-dom';
 import { useBeforeunload } from '@/hooks';
 import logo from '../../logo.svg';
-import style from './style.less';
+import * as style from './style.module.less';
+
+// style.default.use();
     
 const list = [{
   name: '肯德基',
@@ -83,20 +85,20 @@ function Home() {
   }
     
   return (
-    <div className={`${style.home} p20`}>
+    <div className={`${style.home} p20 m-t-30 `}>
       <img src={logo} className="App-logo" alt="logo" />
 
       <header>EnSelect: </header>
-      <EnSelect label="单独使用" options={list} onChange={onChange} width="106px" noStyle={true} />
+      {/* <EnSelect label="单独使用" options={list} onChange={onChange} width="106px" noStyle={true} /> */}
 
       <header>BlockForm: </header>
-      <BlockForm
+      {/* <BlockForm
         paramCallback={paramCallback}
         formData={formData}
         initparams={joinDto}
         layout='horizontal'
         noborderBottom={true}
-      />
+      /> */}
     </div>
   )
 }

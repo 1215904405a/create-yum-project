@@ -1,16 +1,38 @@
-// observer: 监控当前组件使用到的由 MobX 跟踪的 observable state, 当状态发生变化时通知 React 更新视图
+// Counter.js
 import React from 'react';
-import { observer } from 'mobx-react' // mobx-react-lite
-import { Button } from 'antd';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement, incrementByAmount } from '@/stores/reducer/counterSlice';
 
-function Counter({ counterStore }: any) {
+const Counter = () => {
+  const count = useSelector((state: any) => state.counter.value);
+  const dispatch = useDispatch();
+
   return (
     <div>
-      <p className="paragraph">{counterStore.count}</p>
-      <Button onClick={() => counterStore.increment()} className="button m-r-20">加 1</Button>
-      <Button type='primary' onClick={() => counterStore.reset()} className="button">重置</Button>
+      <div>
+        <button
+          onClick={() => dispatch(decrement())}
+          aria-label="Decrement value"
+        >
+          -
+        </button>
+        <span>{count}</span>
+        <button
+          onClick={() => dispatch(increment())}
+          aria-label="Increment value"
+        >
+          +
+        </button>
+      </div>
+      <div>
+        <button
+          onClick={() => dispatch(incrementByAmount(5))}
+        >
+          Increment by 5
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default observer(Counter)
+export default Counter;

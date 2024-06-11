@@ -38,12 +38,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     historyApiFallback: true,
     // onBeforeSetupMiddleware
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        pathRewrite: { '^/api': '' },
-      },
-    },
+    proxy: [{
+      context: ['/api', '/auth'],
+      target: 'http://localhost:3000',
+      secure: false,
+      changeOrigin: true,
+    }],
   },
   plugins: [
     // new webpack.DefinePlugin({

@@ -15,7 +15,7 @@ node版本需要14以上
 
 
 ```
-webpack5 + react18 + mobx + react-router6 + ts 基础脚手架 自己功能自己扩展
+webpack5 + react18 + redux + react-router6 + ts 基础脚手架 自己功能自己扩展
 ```
 [mobx](https://mobx.js.org/README.htm)
 [mobx demo](https://blog.csdn.net/weixin_50983325/article/details/116529381)
